@@ -1,0 +1,54 @@
+
+POST http://localhost:5000/api/auth/register
+Content-Type : application/json; charset=utf-8
+
+{
+    "username" : "phumiu",
+    "password" : "phumiu"
+}
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type : application/json
+
+{
+    "username" : "phumiu",
+    "password" : "phumiu"
+}
+
+
+###
+POST http://localhost:5000/api/posts
+Content-Type : application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTYwNGM0MjE5NmUxY2M0YzUyNzQ1NDgiLCJpYXQiOjE2MzM3ODUyNDZ9.HhG-xiadE51JnPAlqKjmuJwFNzx5hNaIWIFTVf14JdY
+
+{
+    "title" : "admin",
+    "description" : "Learning how to become a professional admin",
+    "url" : "google.com",
+    "status" : "LEARNING"
+}
+
+###
+GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTYwNGM0MjE5NmUxY2M0YzUyNzQ1NDgiLCJpYXQiOjE2MzM3ODUyNDZ9.HhG-xiadE51JnPAlqKjmuJwFNzx5hNaIWIFTVf14JdY
+
+
+
+###
+PUT http://localhost:5000/api/posts/6161868e30188c497fe8f996
+Content-Type : application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTYwNGM0MjE5NmUxY2M0YzUyNzQ1NDgiLCJpYXQiOjE2MzM3ODUyNDZ9.HhG-xiadE51JnPAlqKjmuJwFNzx5hNaIWIFTVf14JdY
+
+{
+    "title" : "my updated second",
+    "description" : "VEJ season 2",
+    "url" : "vue.org",
+    "status" : "LEARNED"
+}
+
+
+###
+DELETE http://localhost:5000/api/posts/61619e1dd64c6a3012fb41b5
+Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTYwNGM0MjE5NmUxY2M0YzUyNzQ1NDgiLCJpYXQiOjE2MzM3ODUyNDZ9.HhG-xiadE51JnPAlqKjmuJwFNzx5hNaIWIFTVf14JdY
