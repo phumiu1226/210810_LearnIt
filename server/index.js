@@ -3,26 +3,36 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRouter = require('./routes/auth');
 const postRouter = require('./routes/post');
-const cors = require('cors');
+// const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
 
-let whitelist = ['http://localhost:5000/'];
-let corsOptions = {
-    origin: function (origin, callback) {
-        console.log('whitelist : ' + whitelist, 'origin : ' + origin);
-        if (origin === undefined) callback(null, true)
-        else if (whitelist.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
-        }
-    }
-}
+
 // Then pass them to cors:
-app.use(cors(corsOptions));
+// app.use(cors());
+
+// Add headers before the routes are defined
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+
 
 const connectDB = async () => {
     try {
