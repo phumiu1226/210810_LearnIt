@@ -1,6 +1,6 @@
 
 //check project is deloy or production
-export const API_URL = process.env.NODE_ENV !== 'production' ? 'https://ancient-chamber-16587.herokuapp.com/api' : 'someDeloyURL'
+export const API_URL = process.env.NODE_ENV !== 'production' ? 'http://localhost:5000/api' : 'someDeloyURL'
 
 export const LOCAL_STORAGE_TOKEN_NAME = 'learnit-mern'
 export const POSTS_LOADED_FAIL = 'POSTS_LOADED_FAIL'
