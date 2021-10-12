@@ -11,9 +11,7 @@ app.use(express.json());
 
 
 // Then pass them to cors:
-app.use(cors({
-    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH', 'OPTION']
-}));
+app.use(cors());
 
 
 const connectDB = async () => {
@@ -38,6 +36,6 @@ connectDB();
 app.use('/api/auth', authRouter);
 app.use('/api/posts', postRouter);
 
-const PORT = process.env.POST || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port :  ${PORT}`));
