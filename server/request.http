@@ -24,10 +24,10 @@ Content-Type : application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTYwNGM0MjE5NmUxY2M0YzUyNzQ1NDgiLCJpYXQiOjE2MzM3ODUyNDZ9.HhG-xiadE51JnPAlqKjmuJwFNzx5hNaIWIFTVf14JdY
 
 {
-    "title" : "admin",
-    "description" : "Learning how to become a professional admin",
+    "title" : "My fourth post",
+    "description" : "How easy is it to make lunch",
     "url" : "google.com",
-    "status" : "LEARNING"
+    "status" : "TO LEARN"
 }
 
 ###
