@@ -8,7 +8,21 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+
+let whitelist = ['http://localhost:5000/'];
+let corsOptions = {
+    origin: function (origin, callback) {
+        console.log('whitelist : ' + whitelist, 'origin : ' + origin);
+        if (origin === undefined) callback(null, true)
+        else if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+}
+// Then pass them to cors:
+app.use(cors(corsOptions));
 
 const connectDB = async () => {
     try {
